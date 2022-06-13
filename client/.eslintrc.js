@@ -32,6 +32,7 @@ module.exports = {
         'react/no-unescaped-entities': 'off',
         'react/no-children-prop': 'off',
         'react/prop-types': 'off',
+        "@typescript-eslint/no-unsafe-member-access": "off",
         '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
         '@typescript-eslint/no-unused-vars': ['error', { 'varsIgnorePattern': '^_' }],
         '@typescript-eslint/ban-ts-comment': 'error',
