@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  server:
+    depends_on:
+      - database
+    build:
+     context: .
+     args:
+       UID: ${UID:-1000}
+       GID: ${GID:-1000}
+     target: server-dev
+    env_file:
+      - ./server/.env
+    environment:
+      - COMPOSER_MEMORY_LIMIT=3G
+    extra_hosts:
+      - "docker.for.windows.localhost:${APP_DOCKER_HOST:-127.0.0.1}"
+    ports:
+      - 8000:8080
+    volumes:
+      - ./server:/var/www/html:cached
+      - ./.composer:/home/dev/.composer:delegated
+      - ./php.ini-development:/usr/local/etc/php/conf.d/app.ini
+  client:
+    build:
+      context: .
+      target: client
+      args:
+        UID: ${UID:-1000}
+    command: bash -c "yarn install && yarn start"
+    user: node
+    ports:
+      - 80:3000
+    volumes:
+      - ./client:/home/node:cached
+      - $PWD/client/node_modules
+    stdin_open: true
+  database:
+    image: mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=P@ssword!
+    ports:
+      - 1433:1433
+    volumes:
+      - /var/opt/mssql
