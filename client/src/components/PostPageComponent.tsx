@@ -65,7 +65,14 @@ function PostPageComponent() {
             <div className="d-none" id="article">
                 <article className="blog-post">
                     <h2 className="blog-post-title">{post.title}</h2>
-                    <p className="blog-post-meta"><Link to={"/users/"+String(post.user.id)}>{post.user.first_name} {post.user.last_name} | {post.user.email}</Link></p>
+                    <div className="row">
+                      <div className="col-1">
+                        <img className='img img-responsive' src={post.user.image_url}></img>
+                      </div>
+                      <div className="col-11 text-left">
+                        <Link to={"/users/"+String(post.user.id)} className="text-dark text-decoration-none hover-primary text-bold"> <div className="text-muted">{post.user.last_name} {post.user.first_name} | {post.user.email}</div></Link>
+                      </div>
+                    </div>
                     <p>{post.body}</p>
                 </article>
                 <hr/>

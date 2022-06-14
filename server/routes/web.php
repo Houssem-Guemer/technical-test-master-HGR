@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('/posts', [ApiController::class, "getPosts"]);
 Route::get('/posts/{id}', [ApiController::class, "getPost"]);
 Route::get('/users/{id}', [ApiController::class, "getUser"]);
+Route::get('/search', [ApiController::class, "searchData"]);

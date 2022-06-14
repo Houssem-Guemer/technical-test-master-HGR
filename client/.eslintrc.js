@@ -35,6 +35,8 @@ module.exports = {
         '@typescript-eslint/no-unsafe-member-access': 'off',
         '@typescript-eslint/no-unsafe-call': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
+        '@typescript-eslint/no-unsafe-argument': 'off',
         '@typescript-eslint/array-type': ['error', { default: 'array-simple' }],
         '@typescript-eslint/no-unused-vars': ['error', { 'varsIgnorePattern': '^_' }],
         '@typescript-eslint/ban-ts-comment': 'error',

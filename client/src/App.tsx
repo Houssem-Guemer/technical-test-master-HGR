@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import PostPageComponent from './components/PostPageComponent';
 import PostsComponent from './components/PostsComponent';
 import SearchComponent from './components/SearchComponent';
+import SearchPageComponent from './components/SearchPageComponent';
 import UserPageComponent from './components/UserPageComponent';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
                       <Route path="/" element={<PostsComponent/>} />
                       <Route path="/posts/:id" element={<PostPageComponent/>} />
                       <Route path="/users/:id" element={<UserPageComponent/>} />
+                      <Route path="/search" element={<SearchPageComponent/>} />
                     </Routes>
                 </div>
                 <SearchComponent/>
