@@ -1,5 +1,8 @@
+import type CommentData from "./Comment";
+import type PostData from "./Post";
+
 export default interface UserData {
-    id: number,
+    id: string,
     first_name: string,
     last_name: string,
     user_name: string,
@@ -8,4 +11,6 @@ export default interface UserData {
     image_url: string,
     created_at: string,
     updated_at: string,
+    comments: CommentData[],
+    posts: PostData[],
   }
